@@ -338,4 +338,17 @@ endif()
 
 enable_testing()
 
+if(INPUTLEAP_BUILD_TESTS AND CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    find_program(DPKG_DEB_EXECUTABLE dpkg-deb)
+    if(DPKG_DEB_EXECUTABLE AND CMAKE_CPACK_COMMAND)
+        add_test(
+            NAME package-deb-smoke
+            COMMAND
+                ${CMAKE_SOURCE_DIR}/dist/scripts/package_deb_smoke.sh
+                ${CMAKE_BINARY_DIR}
+                ${CMAKE_CPACK_COMMAND}
+        )
+    endif()
+endif()
+
 add_subdirectory (src)

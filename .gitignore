@@ -40,3 +40,4 @@ bundle
 compile_commands.json
 # Cache (used by clangd)
 .cache
+.omx/
