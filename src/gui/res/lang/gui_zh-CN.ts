@@ -1123,8 +1123,8 @@ Double click on a screen to edit its settings.</source>
     </message>
     <message>
         <location filename="../../src/SettingsDialog.ui" line="132"/>
-        <source>Start &amp;InputLeap on startup</source>
-        <translation>自动启动</translation>
+        <source>Show Tray &amp;Icon upon App Start</source>
+        <translation>应用启动时显示托盘图标</translation>
     </message>
     <message>
         <location filename="../../src/SettingsDialog.ui" line="142"/>
@@ -1140,6 +1140,11 @@ Double click on a screen to edit its settings.</source>
         <location filename="../../src/SettingsDialog.ui" line="194"/>
         <source>Enable &amp;SSL</source>
         <translation>开启SSL</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="201"/>
+        <source>Require client certificate</source>
+        <translation>要求客户端证书</translation>
     </message>
 </context>
 <context>

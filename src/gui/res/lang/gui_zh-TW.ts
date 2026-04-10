@@ -174,6 +174,24 @@ Visit our website for help and info (symless.com).
     </message>
 </context>
 <context>
+    <name>LogWindow</name>
+    <message>
+        <location filename="../../src/LogWindow.ui" line="26"/>
+        <source>Log - InputLeap</source>
+        <translation>記錄 - InputLeap</translation>
+    </message>
+    <message>
+        <location filename="../../src/LogWindow.ui" line="71"/>
+        <source>&amp;Clear Log</source>
+        <translation>清除記錄(&amp;C)</translation>
+    </message>
+    <message>
+        <location filename="../../src/LogWindow.ui" line="78"/>
+        <source>&amp;Hide</source>
+        <translation>隱藏(&amp;H)</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="src/MainWindow.cpp" line="790"/>
@@ -397,9 +415,9 @@ To automatically trust this fingerprint for future connections, click Yes. To re
         <translation type="finished">InputLeap</translation>
     </message>
     <message>
-        <location filename="res/MainWindow.ui" line="90"/>
+        <location filename="../../src/MainWindow.ui" line="39"/>
         <source>Ser&amp;ver (share this computer's mouse and keyboard):</source>
-        <translation type="unfinished"></translation>
+        <translation>伺服器（分享這台電腦的滑鼠與鍵盤）：</translation>
     </message>
     <message>
         <location filename="res/MainWindow.ui" line="243"/>
@@ -463,19 +481,14 @@ To automatically trust this fingerprint for future connections, click Yes. To re
         <translation type="finished">IP地址:</translation>
     </message>
     <message>
-        <location filename="res/MainWindow.ui" line="131"/>
-        <source>Fingerprint:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="res/MainWindow.ui" line="228"/>
+        <location filename="../../src/MainWindow.ui" line="177"/>
         <source>&amp;Client (use another computer's mouse and keyboard):</source>
-        <translation type="unfinished"></translation>
+        <translation>用戶端（使用另一台電腦的滑鼠與鍵盤）：</translation>
     </message>
     <message>
-        <location filename="res/MainWindow.ui" line="270"/>
+        <location filename="../../src/MainWindow.ui" line="219"/>
         <source>Auto config</source>
-        <translation type="unfinished"></translation>
+        <translation>自動設定</translation>
     </message>
     <message>
         <location filename="res/MainWindow.ui" line="390"/>
@@ -543,19 +556,34 @@ To automatically trust this fingerprint for future connections, click Yes. To re
         <translation type="finished">儲存動態生成的設定至檔案。</translation>
     </message>
     <message>
-        <location filename="res/MainWindow.ui" line="475"/>
-        <source>Settings</source>
-        <translation type="finished">設定</translation>
+        <location filename="../../src/MainWindow.ui" line="80"/>
+        <source>SSL Fingerprint:</source>
+        <translation>SSL 指紋：</translation>
     </message>
     <message>
-        <location filename="res/MainWindow.ui" line="478"/>
+        <location filename="../../src/MainWindow.ui" line="369"/>
+        <source>S&amp;ave configuration</source>
+        <translation>儲存設定(&amp;A)</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.ui" line="380"/>
+        <source>Change &amp;Settings</source>
+        <translation>變更設定(&amp;S)</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.ui" line="383"/>
         <source>Edit settings</source>
-        <translation type="finished">編輯</translation>
+        <translation>編輯設定</translation>
     </message>
     <message>
-        <location filename="res/MainWindow.ui" line="486"/>
-        <source>Run Wizard</source>
-        <translation type="finished">執行設定精靈</translation>
+        <location filename="../../src/MainWindow.ui" line="391"/>
+        <source>Show &amp;Log</source>
+        <translation>顯示記錄(&amp;L)</translation>
+    </message>
+    <message>
+        <location filename="../../src/MainWindow.ui" line="394"/>
+        <source>Show Log</source>
+        <translation>顯示記錄</translation>
     </message>
 </context>
 <context>
@@ -1066,109 +1094,144 @@ This allows InputLeap to interact with elevated processes and the UAC dialog, bu
 <context>
     <name>SettingsDialog</name>
     <message>
-        <location filename="res/SettingsDialog.ui" line="14"/>
+        <location filename="../../src/SettingsDialog.ui" line="14"/>
         <source>Settings</source>
-        <translation type="finished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="32"/>
+        <location filename="../../src/SettingsDialog.ui" line="69"/>
         <source>Sc&amp;reen name:</source>
-        <translation type="finished">顯示名稱：</translation>
+        <translation>螢幕名稱：</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="49"/>
+        <location filename="../../src/SettingsDialog.ui" line="148"/>
         <source>P&amp;ort:</source>
-        <translation type="finished">端口</translation>
+        <translation>連接埠：</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="78"/>
-        <source>&amp;Interface:</source>
-        <translation type="finished">網絡界面：</translation>
-    </message>
-    <message>
-        <location filename="res/SettingsDialog.ui" line="120"/>
-        <source>Elevate mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="res/SettingsDialog.ui" line="127"/>
+        <location filename="../../src/SettingsDialog.ui" line="125"/>
         <source>&amp;Hide on startup</source>
-        <translation type="unfinished"></translation>
+        <translation>啟動時隱藏</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="146"/>
-        <source>&amp;Network Security</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="res/SettingsDialog.ui" line="155"/>
-        <source>Use &amp;SSL encryption (unique certificate)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="res/SettingsDialog.ui" line="184"/>
+        <location filename="../../src/SettingsDialog.ui" line="210"/>
         <source>Logging</source>
-        <translation type="finished">記錄日誌</translation>
+        <translation>記錄</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="202"/>
+        <location filename="../../src/SettingsDialog.ui" line="228"/>
         <source>&amp;Logging level:</source>
-        <translation type="finished">記錄等級：</translation>
+        <translation>記錄等級：</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="251"/>
+        <location filename="../../src/SettingsDialog.ui" line="277"/>
         <source>Log to file:</source>
-        <translation type="finished">記錄至檔案：</translation>
+        <translation>記錄到檔案：</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="268"/>
+        <location filename="../../src/SettingsDialog.ui" line="294"/>
         <source>Browse...</source>
-        <translation type="finished">瀏覽...</translation>
+        <translation>瀏覽…</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="213"/>
+        <location filename="../../src/SettingsDialog.ui" line="239"/>
         <source>Error</source>
-        <translation type="finished">錯誤</translation>
+        <translation>錯誤</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="107"/>
+        <location filename="../../src/SettingsDialog.ui" line="50"/>
         <source>&amp;Language:</source>
-        <translation type="finished">語言</translation>
+        <translation>語言：</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="20"/>
-        <source>&amp;Miscellaneous</source>
-        <translation type="finished">&amp;雜項</translation>
-    </message>
-    <message>
-        <location filename="res/SettingsDialog.ui" line="218"/>
+        <location filename="../../src/SettingsDialog.ui" line="244"/>
         <source>Warning</source>
-        <translation type="finished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="223"/>
+        <location filename="../../src/SettingsDialog.ui" line="249"/>
         <source>Note</source>
-        <translation type="finished">通知</translation>
+        <translation>注意</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="228"/>
+        <location filename="../../src/SettingsDialog.ui" line="254"/>
         <source>Info</source>
-        <translation type="finished">訊息</translation>
+        <translation>資訊</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="233"/>
+        <location filename="../../src/SettingsDialog.ui" line="259"/>
         <source>Debug</source>
-        <translation type="finished">偵錯</translation>
+        <translation>除錯</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="238"/>
+        <location filename="../../src/SettingsDialog.ui" line="264"/>
         <source>Debug1</source>
-        <translation type="finished">偵錯1</translation>
+        <translation>除錯1</translation>
     </message>
     <message>
-        <location filename="res/SettingsDialog.ui" line="243"/>
+        <location filename="../../src/SettingsDialog.ui" line="269"/>
         <source>Debug2</source>
-        <translation type="finished">偵錯2</translation>
+        <translation>除錯2</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="29"/>
+        <source>General</source>
+        <translation>一般</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="86"/>
+        <source>Elevate</source>
+        <translation>提升權限</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="93"/>
+        <source>Specify when the InputLeap service should run at an elevated privilege level</source>
+        <translation>設定 InputLeap 服務應在何時以提升權限執行</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="100"/>
+        <source>As Needed</source>
+        <translation>按需</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="105"/>
+        <source>Always</source>
+        <translation>總是</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="110"/>
+        <source>Never</source>
+        <translation>從不</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="118"/>
+        <source>Minimize to System &amp;Tray</source>
+        <translation>最小化到系統匣</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="132"/>
+        <source>Show Tray &amp;Icon upon App Start</source>
+        <translation>應用程式啟動時顯示系統匣圖示</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="142"/>
+        <source>Networking</source>
+        <translation>網路</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="177"/>
+        <source>&amp;Address:</source>
+        <translation>位址：</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="194"/>
+        <source>Enable &amp;SSL</source>
+        <translation>啟用 SSL</translation>
+    </message>
+    <message>
+        <location filename="../../src/SettingsDialog.ui" line="201"/>
+        <source>Require client certificate</source>
+        <translation>要求用戶端憑證</translation>
     </message>
 </context>
 <context>
