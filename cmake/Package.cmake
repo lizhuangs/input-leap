@@ -24,6 +24,8 @@ Work seamlessly across Windows, macOS and Linux.]])
         set(CPACK_DEBIAN_PACKAGE_RELEASE "1")
         set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
         set(CPACK_DEBIAN_FILE_NAME "DEB-DEFAULT")
+        set(CPACK_DEBIAN_PACKAGE_CONTROL_EXTRA
+            "${CMAKE_SOURCE_DIR}/dist/debian/postinst;${CMAKE_SOURCE_DIR}/dist/debian/prerm")
     endif()
 
     include(CPack)

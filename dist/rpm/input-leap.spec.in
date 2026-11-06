@@ -34,6 +34,9 @@ BuildRequires: pkgconfig(Qt6Linguist)
 BuildRequires: make
 BuildRequires: pkgconfig(libei-1.0)
 BuildRequires: pkgconfig(libportal) >= 0.8
+Requires(post): systemd
+Requires(preun): systemd
+Requires(postun): systemd
 
 %description
 InputLeap allows you to share one mouse and keyboard between multiple computers.
@@ -65,6 +68,19 @@ desktop-file-install --delete-original \
 %ctest
 desktop-file-validate %{buildroot}/%{_datadir}/applications/%{rdnn_name}.desktop
 
+%post
+systemctl daemon-reload >/dev/null 2>&1 || :
+systemctl enable input-leap.service >/dev/null 2>&1 || :
+systemctl try-restart input-leap.service >/dev/null 2>&1 || systemctl try-start input-leap.service >/dev/null 2>&1 || :
+
+%preun
+if [ $1 -eq 0 ]; then
+  systemctl disable --now input-leap.service >/dev/null 2>&1 || :
+fi
+
+%postun
+systemctl daemon-reload >/dev/null 2>&1 || :
+
 %files
 # None of the documentation files are actually useful here, they all point to
 # the online website, so include just one, the README
@@ -72,6 +88,8 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{rdnn_name}.desktop
 %{_bindir}/%{name}c
 %{_bindir}/%{name}s
 %{_bindir}/%{name}
+%{_bindir}/input-leap-systemd-service
+%{_unitdir}/input-leap.service
 %{_datadir}/icons/hicolor/scalable/apps/%{rdnn_name}.svg
 %{_datadir}/applications/%{rdnn_name}.desktop
 %{_datadir}/metainfo/%{rdnn_name}.appdata.xml
@@ -84,4 +102,3 @@ desktop-file-validate %{buildroot}/%{_datadir}/applications/%{rdnn_name}.desktop
 
 * Sat Jan 27 2018 Debauchee <todo@mail.com>
 - Initial version of the package
-
