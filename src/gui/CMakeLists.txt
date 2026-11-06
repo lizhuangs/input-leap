@@ -1,5 +1,5 @@
 
-find_package (Qt${QT_DEFAULT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} COMPONENTS Core Widgets Network LinguistTools REQUIRED)
+find_package (Qt${QT_DEFAULT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} COMPONENTS Core Gui Widgets Network LinguistTools REQUIRED)
 
 message(STATUS "Using Qt ${QT_DEFAULT_MAJOR_VERSION}")
 
@@ -10,15 +10,26 @@ set (CMAKE_INCLUDE_CURRENT_DIR ON)
 
 # files that are used both in tests and the app
 set(GUI_COMMON_SOURCE_FILES
+    src/BaseConfig.cpp
     src/Action.cpp
     src/Hotkey.cpp
     src/KeySequence.cpp
 )
 
 set(GUI_COMMON_HEADER_FILES
+    src/BaseConfig.h
     src/Action.h
     src/Hotkey.h
     src/KeySequence.h
+)
+
+set(GUI_SERVICE_SOURCE_FILES
+    src/LinuxPackagedAutostart.cpp
+    src/input-leap-systemd-service.cpp
+)
+
+set(GUI_SERVICE_HEADER_FILES
+    src/LinuxPackagedAutostart.h
 )
 
 set(GUI_SOURCE_FILES
@@ -27,7 +38,6 @@ set(GUI_SOURCE_FILES
     src/AddClientDialog.cpp
     src/AppConfig.cpp
     src/AppLocale.cpp
-    src/BaseConfig.cpp
     src/CommandProcess.cpp
     src/DataDownloader.cpp
     src/FingerprintAcceptDialog.cpp
@@ -188,6 +198,13 @@ add_executable (input-leap WIN32
     res/InputLeap.qrc
 )
 
+add_executable(input-leap-systemd-service
+    ${GUI_COMMON_SOURCE_FILES}
+    ${GUI_COMMON_HEADER_FILES}
+    ${GUI_SERVICE_SOURCE_FILES}
+    ${GUI_SERVICE_HEADER_FILES}
+)
+
 include_directories (./src)
 
 target_link_libraries(input-leap
@@ -198,6 +215,11 @@ target_link_libraries(input-leap
     Qt${QT_DEFAULT_MAJOR_VERSION}::Core
     Qt${QT_DEFAULT_MAJOR_VERSION}::Widgets
     Qt${QT_DEFAULT_MAJOR_VERSION}::Network
+)
+
+target_link_libraries(input-leap-systemd-service
+    Qt${QT_DEFAULT_MAJOR_VERSION}::Core
+    Qt${QT_DEFAULT_MAJOR_VERSION}::Gui
 )
 
 target_link_libraries(input-leap OpenSSL::SSL OpenSSL::Crypto)
@@ -226,7 +248,7 @@ target_link_libraries (input-leap common)
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
     install(TARGETS input-leap DESTINATION ${INPUTLEAP_BUNDLE_BINARY_DIR})
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Linux" OR ${CMAKE_SYSTEM_NAME} MATCHES "BSD")
-    install (TARGETS input-leap DESTINATION bin)
+    install (TARGETS input-leap input-leap-systemd-service DESTINATION bin)
 elseif(WIN32)
     set(CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION .)
     if(${CMAKE_BUILD_TYPE} MATCHES "Debug")
@@ -252,6 +274,7 @@ if(INPUTLEAP_BUILD_TESTS)
     set(GUI_TEST_SOURCE_FILES
         test/KeySequenceTests.cpp
         test/HotkeyTests.cpp
+        test/LinuxPackagedAutostartTests.cpp
         test/TranslationTests.cpp
         test/main.cpp
     )
@@ -260,6 +283,8 @@ if(INPUTLEAP_BUILD_TESTS)
         ${GUI_TEST_SOURCE_FILES}
         ${GUI_COMMON_SOURCE_FILES}
         ${GUI_COMMON_HEADER_FILES}
+        src/LinuxPackagedAutostart.cpp
+        src/LinuxPackagedAutostart.h
     )
 
     add_test(NAME guiunittests
